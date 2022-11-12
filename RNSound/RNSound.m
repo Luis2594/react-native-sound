@@ -173,15 +173,15 @@ RCT_EXPORT_METHOD(setCategory
     }
 
     if (category) {
-        if (mixWithOthers) {
-            [session setCategory:category
-                     withOptions:AVAudioSessionCategoryOptionMixWithOthers |
-                                 AVAudioSessionCategoryOptionAllowBluetooth
-                           error:nil];
-        } else {
-            [session setCategory:category error:nil];
-        }
-    }
+           if (mixWithOthers) {
+               [session setCategory:category
+                        withOptions:AVAudioSessionCategoryOptionMixWithOthers
+                       //  | AVAudioSessionCategoryOptionAllowBluetooth // I moved the '|' to the next line and commented it out
+                              error:nil];
+           } else {
+               [session setCategory:category error:nil];
+           }
+       }
 }
 
 RCT_EXPORT_METHOD(enableInSilenceMode : (BOOL)enabled) {
